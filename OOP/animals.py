@@ -1,8 +1,8 @@
 class Animals:
-    def __init__(self, age, weight, alive)
-    self.age = age
-    self.weight = weight
-    self.alive = alive
+    def __init__(self, age, weight, alive):
+        self.age = age
+        self.weight = weight
+        self.alive = alive
 
 
 def Insects(Animals):
@@ -21,12 +21,12 @@ def Insects(Animals):
 
 
 def Birds(Animals):
-    def __init__(self, canFly, needsToEat) :
-            self.canFly = canFly
-            self.needsToEat = needsToEat
+    def __init__(self, canFly, needsToEat):
+        self.canFly = canFly
+        self.needsToEat = needsToEat
 
     def getSpeed(self):
-        if self.canFly :
+        if self.canFly:
             if self.weight > 10:
                 return 5
             elif self.weight > 5:
@@ -35,4 +35,4 @@ def Birds(Animals):
         return 1
 
     def eat(self)
-        return self.needsToEat = false
+    return self.needsToEat = false
