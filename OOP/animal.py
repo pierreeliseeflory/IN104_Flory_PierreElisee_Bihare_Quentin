@@ -9,9 +9,16 @@ class Animals:
     def tic(self):
         self.hunger_bar -= self.hunger_decrease_rate
 
+    def get_hunger_bar(self):
+        return self.hunger_bar
 
-class Fish(Animal):
-    def __init__(self, color, eating_speed):
+# Add death marks and create a main in which you create the biotope
+
+
+class Fish(Animals):
+    def __init__(self, color, eating_speed, size, weight, hunger_bar, hunger_decrease_rate, alive):
+        Animals.__init__(self, size, weight, hunger_bar,
+                         hunger_decrease_rate, alive)
         self.color = color
         self.eating_speed = 0.1
 
@@ -26,23 +33,30 @@ class Fish(Animal):
             self.hunger_bar += self.eating_speed
 
 
-class Feline(Animal):
-    def __init__(self, speed, on_hunt, sleeping, awake):
+class Feline(Animals):
+    def __init__(self, speed, on_hunt, sleeping, size, weight, hunger_bar, hunger_decrease_rate, alive):
+        Animals.__init__(self, size, weight, hunger_bar,
+                         hunger_decrease_rate, alive)
         self.speed = speed
-        self.awake = True
+        self.sleeping = sleeping
+        self.on_hunt = on_hunt
 
     def get_speed(self):
         return self.speed
 
-    def go_on_hunt(self)
-    if self.hunger_bar < 0.3:
-            self.on_hunt = True
+    def get_on_hunt(self):
+        return self.on_hunt
+
+    def get_sleeping(self):
+        return self.sleeping
 
     def wake_up(self):
-        self.awake = True
+        self.sleeping = False
 
-    def eat(self):
-        if self.on_hunt == True and
+    def go_on_hunt(self):
+        if self.hunger_bar <= 0.3:
+            self.wake_up()
+            self.on_hunt = True
 
     def sleep(self):
         if hunger_bar > 1:
