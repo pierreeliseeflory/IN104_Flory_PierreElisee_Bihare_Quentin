@@ -1,5 +1,5 @@
 import sys 
-path = "./OOP/"
+path = "../OOP/"
 sys.path.append(path)
 import flory_main 
 import unittest
