@@ -1,7 +1,21 @@
 import animals as Animals
 
+#I added thoses classes to raise them when any proble occurs
+class NotStringError(ValueError):
+    pass
+
+class InputNotCoherent(ValueError):
+    pass
+
+class NotBoolError(ValueError):
+    pass
+
 
 def ant_creation(name):
+    #Added this to test input
+    if not isinstance(name, str):
+        raise NotStringError('the name of the ant should be a string')
+    
     tmp = Animals.Insects(10, 2)
     tmp.age = 0
     tmp.weight = 1
@@ -11,6 +25,12 @@ def ant_creation(name):
 
 
 def bird_creation(canFly, needsToEat, weight, maxAge, name):
+    #Added the tests here as well
+    if not(isinstance(canFly,bool)):
+        raise NotBoolError('canFly should be boolean')
+    if maxAge <= 0 :
+        raise InputNotCoherent('the maximal age should be a positive integer')
+    
     tmp = Animals.Birds(canFly, needsToEat, maxAge)
     tmp.age = 0
     tmp.weight = weight
@@ -20,6 +40,7 @@ def bird_creation(canFly, needsToEat, weight, maxAge, name):
 
 
 def main():
+    #Main has no return and no inputs so i don't know how/what to test
     ant1 = ant_creation("ant1")
     ant2 = ant_creation("ant2")
     pigeon = bird_creation(True, 0, 2, 15, "pigeon")
@@ -36,21 +57,19 @@ def main():
                         predator.eat(prey)
                         prey.death(True, predator)
                         if not prey.alive:
-                            print("The", predator.name, " ate the ", prey.name)
+                            print(predator.name, " a mangé ", prey.name)
         for animal in animals:
             if animal.alive:
                 animal.birthday()
         for prey in preys:
             if prey.alive:
                 prey.death(False, None)
-                if not prey.alive:
-                    print(prey.name, " died of age")
+                if not prey.alive :
+                    print(prey.name, " est mort de vieillesse")
         for predator in predators:
             if predator.alive:
                 predator.needsToEat += 1
                 predator.death()
-                if not predator.alive:
-                    print(predator.name, " died of age or starvation")
+                if not predator.alive :
+                    print(predator.name, " est mort de vieillesse ou de faim")
 
-
-main()
