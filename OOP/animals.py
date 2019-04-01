@@ -47,6 +47,6 @@ class Birds(Animals):
         if self.getSpeed() > attacked.getSpeed():
             self.needsToEat = 0
 
-    def death(self) :
-        if self.age > self.maxAge or self.needsToEat > 10 :
+    def death(self):
+        if self.age > self.maxAge or self.needsToEat > 10:
             self.alive = False

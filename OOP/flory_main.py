@@ -36,19 +36,21 @@ def main():
                         predator.eat(prey)
                         prey.death(True, predator)
                         if not prey.alive:
-                            print(predator.name, " a mangé ", prey.name)
+                            print("The", predator.name, " ate the ", prey.name)
         for animal in animals:
             if animal.alive:
                 animal.birthday()
         for prey in preys:
             if prey.alive:
                 prey.death(False, None)
-                if not prey.alive :
-                    print(prey.name, " est mort de vieillesse")
+                if not prey.alive:
+                    print(prey.name, " died of age")
         for predator in predators:
             if predator.alive:
                 predator.needsToEat += 1
                 predator.death()
-                if not predator.alive :
-                    print(predator.name, " est mort de vieillesse ou de faim")
+                if not predator.alive:
+                    print(predator.name, " died of age or starvation")
+
+
 main()
